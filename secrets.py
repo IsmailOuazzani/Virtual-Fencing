@@ -1,4 +1,4 @@
 secrets = {
     "ssid": "Sheep1",
-    "password": ""
+    "password": "" # empty string for network without password
 }
