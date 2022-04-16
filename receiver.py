@@ -41,15 +41,6 @@ spi = busio.SPI(board.SCK1, board.MOSI1, board.MISO1)
 esp = adafruit_esp32spi.ESP_SPIcontrol(spi, esp32_cs, esp32_ready, esp32_reset)
 wifi = adafruit_esp32spi_wifimanager.ESPSPI_WiFiManager(esp, secrets)
 
-# get signal strengths
-#networks = esp.scan_networks()
-#print(networks)
-
-#for ap in esp.scan_networks():
-#   if ap['ssid'] == "Sheep1":
-#        print("\t%s\t\tRSSI: %d" % (str(ap['ssid'], 'utf-8'), ap['rssi']))
-#        continue
-
 #Connect to WiFi
 print("Connecting to WiFi...")
 wifi.connect()
@@ -57,7 +48,7 @@ print("Connected")
 
 shock_count = 0
 total_shock_count = 0
-boundary = 10
+boundary = 10 # radius of boundary in metres
 
 inter = 1
 n = 30
@@ -67,25 +58,18 @@ print("Start")
 while True:
     values = []
     for i in range(n):
-        #for ap in esp.scan_networks():
-        #    if ap['ssid'] == "Sheep1":
-        #        values.append(ap['rssi'])
-        #        print(ap['rssi'])
         values.append(esp.rssi)
         time.sleep(inter/n)
     avg_rssi = sum(values)/n
-    #fre = buzzer.frequency
     distance = 10**((-41 - avg_rssi)/(20)) #[m] Calibrate by holding transmitter 1m away and replace '-41' with measured RSSI
     print("Distance from signal:", distance, 'm')
-    #print(avg_rssi)
     if (distance > boundary) and led.value == False:
         print("Out of bounds!")
         print("RSSI:", avg_rssi)
         print("Shock count:", shock_count, "Total shock count", total_shock_count, "f:", buzzer.frequency, "Hz")
-        buzzer.duty_cycle = 10000
+        buzzer.duty_cycle = 10000 # a higher number will increase volume
         if buzzer.frequency < 4200:
             buzzer.frequency = buzzer.frequency + 300
-        #print(buzzer.frequency)
         if buzzer.frequency >= 4200 and ((shock_count >= 4) or (total_shock_count >= 5)):
             buzzer.duty_cycle = 0
             print("Too many signals for the sheep :( System disabled.")
@@ -94,7 +78,6 @@ while True:
             print("shock!")
             buzzer.duty_cycle = 0
             led.value = True
-
 
     elif led.value == True:
         time.sleep(1)
@@ -105,7 +88,6 @@ while True:
 
     else:
         print("In the field :)")
-        #print("RSSI:", avg_rssi)
         led.value = False
         time.sleep(0.1)
         buzzer.duty_cycle = 0
