@@ -27,9 +27,5 @@ print(hotspot)
 
 led = Pin(25, Pin.OUT)
 
-#while True:
-#    time.sleep(1)
-
-#############
 while True:
     time.sleep(10)
