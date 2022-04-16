@@ -3,10 +3,10 @@
 receiver.py is ran on the receiver, or arduino nano rp2040 board, using CircuitPython.
 ## Transmitter
 transmitter.py is ran on the transmitter, or pico board, using Micropython.
-Note that it also requires the 2 libraries, httpParser and esp8266.py, which were modified from [link]: https://circuitdigest.com/microcontroller-projects/interfacing-esp8266-01-wifi-module-with-raspberry-pi-pico
+Note that it also requires the 2 libraries, httpParser and esp8266.py, which were modified from [link](https://circuitdigest.com/microcontroller-projects/interfacing-esp8266-01-wifi-module-with-raspberry-pi-pico)
 ### Steps to use run the code on the transmitter
-1. Install [Thonny]: https://thonny.org/
-2. Install [Micropython]: https://micropython.org/download/rp2-pico/ on pico (bootsel, download the file and put it on the board, and it will restart on its own)
+1. Install [Thonny](https://thonny.org/)
+2. Install [Micropython](https://micropython.org/download/rp2-pico/) on pico (bootsel, download the file and put it on the board, and it will restart on its own)
 Note: the pico board won't show up any more on the computer, and its normal. The files are still accessible with Thonny.
 3. Connect pico board to computer and start thonny
 Note: to save stuff to the board, make sure that no other editor has the pico files open (e.g. mu editor)
