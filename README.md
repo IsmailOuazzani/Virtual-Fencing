@@ -3,7 +3,7 @@
 receiver.py is ran on the receiver, or Arduino Nano rp2040 board, using CircuitPython. It should be renamed code.py
 ## Transmitter
 transmitter.py is ran on the transmitter, or Raspberry Py Pico board, using MicroPython. It should be renamed code.py .
-Note that it also requires the two libraries, httpParser.py and esp8266.py, which were modified from [this link](https://circuitdigest.com/microcontroller-projects/interfacing-esp8266-01-wifi-module-with-raspberry-pi-pico). Further functionnalities can be added to the code using [this link](https://room-15.github.io/blog/2015/03/26/esp8266-at-command-reference/).
+Note that it also requires the two libraries, httpParser.py and esp8266.py, which were modified from [this link](https://circuitdigest.com/microcontroller-projects/interfacing-esp8266-01-wifi-module-with-raspberry-pi-pico). Further functionalities can be added to the code using [this link](https://room-15.github.io/blog/2015/03/26/esp8266-at-command-reference/).
 ### Steps to use run the code on the transmitter
 1. Install [Thonny](https://thonny.org/)
 2. Install [Micropython](https://micropython.org/download/rp2-pico/) on pico (bootsel, download the file and put it on the board, and it will restart on its own)
