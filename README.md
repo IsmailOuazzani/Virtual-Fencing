@@ -1,4 +1,15 @@
-# Team Finding Ewe
+# Introduction 
+Sheep often go missing while grazing in *communal fields*. Locating missing livestock is tedious and time consuming.
+
+We prototype a virtual fencing solution to prevent sheep to escape from a field. Our goals are to:
+
+- Reduce the number of sheep lost
+- Reduce cost for farmers
+- Ensure safety for sheep
+- Create a solution that is durable and easily repairable
+- Maintain job security for shepherd's
+
+# Code Usage
 ## Receiver
 receiver.py is ran on the receiver, or Arduino Nano rp2040 board, using CircuitPython. secrets.py is also needed on the board. It should be renamed code.py
 ## Transmitter
@@ -15,3 +26,5 @@ Note: there might be multiple micropythons, select the one for which, when you s
 5. Create new file, name it esp8266.py, copy inside the contents of esp8266.py and save it to the pico board
 6. repeat for httpParser.py
 7. Open new file, put code.py and run with green button
+
+
